@@ -1,5 +1,4 @@
 <script setup>
-import docPreviewImg from '~/assets/img/doc-preview-current.png'
 const props = defineProps({
   title: {
     type: String,
@@ -11,7 +10,7 @@ const props = defineProps({
   },
   image: {
     type: String,
-    default: docPreviewImg
+    default: '/img/doc-preview-current.png'
   }
 })
 </script>

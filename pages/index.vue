@@ -1,43 +1,36 @@
-<script setup>
-import docPreviewImg from '~/assets/img/doc-preview-current.png'
-import docPreviewArchive from '~/assets/img/doc-preview-archive.png'
-import docPreviewLogs from '~/assets/img/doc-preview-logs.png'
-import colosseumLogo from '~/assets/img/affiliates/colosseum.jpeg'
-import pokethonLogo from '~/assets/img/affiliates/pokethon.png'
-import metroidLogo from '~/assets/img/affiliates/metroid.gif'
-import kirbyLogo from '~/assets/img/affiliates/kirbython.png'
-import minikitLogo from '~/assets/img/affiliates/minikit.jpg'
+<script setup lang="ts">
 const docs = [
   {
     title: 'Current Event',
     description: 'Stats tracking and event log for the most recent marathon, as well as active secret sounds.',
-    image: docPreviewImg
+    image: 'img/doc-preview-current.png'
   },
   {
     title: 'Archive',
     description: 'Overall information for each marathon, game runners, filenames, rankings, and records',
-    image: docPreviewArchive
+    image: 'img/doc-preview-archive.png'
   },
   {
     title: 'Zeldathon Logs',
     description: 'Stat tracking and event log for all prior Zeldathon events, and secret sound history.',
-    image: docPreviewLogs
+    image: 'img/doc-preview-logs.png'
   }
 ]
 const affiliates = [
   {
     title: 'Direct Relief Colosseum',
-    image: colosseumLogo,
+    image: 'img/affiliates/colosseum.webp',
     links: [
       {
         name: 'Primary',
         url: 'https://docs.google.com/spreadsheets/d/1i4NW6HuZBm-3ZosP741S4ymWVN9sWjW_2cxADFJpYuI/'
       }
-    ]
+    ],
+    invert: true
   },
   {
     title: 'Pokethon',
-    image: pokethonLogo,
+    image: 'img/affiliates/pokethon.png',
     links: [
       {
         name: 'Primary',
@@ -52,7 +45,7 @@ const affiliates = [
   },
   {
     title: 'Metroid Marathon',
-    image: metroidLogo,
+    image: 'img/affiliates/metroid.gif',
     links: [
       {
         name: 'Primary',
@@ -62,7 +55,7 @@ const affiliates = [
   },
   {
     title: 'Kirbython',
-    image: kirbyLogo,
+    image: 'img/affiliates/kirbython.png',
     links: [
       {
         name: 'Primary',
@@ -72,7 +65,7 @@ const affiliates = [
   },
   {
     title: 'Minikit Marathon',
-    image: minikitLogo,
+    image: 'img/affiliates/minikit.jpg',
     links: [
       {
         name: 'Primary',
@@ -94,7 +87,7 @@ useServerSeoMeta({
 <template>
   <div class="flex flex-col justify-center items-center my-12">
     <img
-      src="~/assets/img/bokoblin.svg"
+      src="/img/bokoblin.svg"
       alt="Bokoblin"
       class="max-w-xl"
     >

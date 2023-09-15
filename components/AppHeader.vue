@@ -13,7 +13,7 @@ watch(router.currentRoute, () => {
       <NuxtLink to="/">
         <div class="hover:scale-110 transition py-1 px-3 rounded flex gap-2 font-extrabold">
           <img
-            src="~/assets/img/bokoskull.svg"
+            src="/img/bokoskull.svg"
             alt="Bokoblin"
             class="h-6"
           >
