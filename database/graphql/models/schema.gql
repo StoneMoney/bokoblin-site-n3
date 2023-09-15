@@ -1,0 +1,136 @@
+scalar DateTime
+
+type TempSideQuestHouse {
+  id: ID!
+  name: String!
+  color: String!
+  score: Int
+}
+
+type TempSideQuestHouseUser {
+  id: ID!
+  name: String!
+  house_id: Int!
+}
+
+type Attendance {
+  attendee: Attendee!
+  marathon: Marathon!
+  award: String
+  location: String
+}
+
+type Attendee {
+  id: ID!
+  name: String
+  rank: String
+  house: String
+  house_color: String
+  twitch_login: String
+  segments: [Segment]!
+  attendance: [Attendance]
+}
+
+type DonationsOverTime {
+  marathon_id: Int!
+  hour: Float!
+  total: Float!
+}
+
+type Runner {
+  attendee: Attendee!
+  rank: Int!
+}
+
+type Game {
+  id: ID!
+  title: String
+  segments: [Segment]!
+  iszelda: Boolean
+  isevent: Boolean
+}
+
+type Charity {
+  id: ID!
+  slug: String
+  full_name: String
+  website: String
+  total: Float
+  marathons: [Marathon]
+}
+
+type Marathon {
+  id: ID!
+  type: String
+  type_id: Int
+  slug: String
+  full_name: String
+  total: Float
+  start_date: DateTime
+  stop_date: DateTime
+  playlist: String
+  charity: Charity
+  color: String
+  segments: [Segment]!
+  segments_count: Int
+  # runners: [Runner]!
+  attendance: [Attendance]
+  attendance_count: Int
+  donationsTime: [DonationsOverTime]
+}
+
+type Filename {
+  segment_id: ID!
+  filename: String
+  note: String
+}
+
+type Segment {
+  id: ID!
+  marathon: Marathon
+  game: Game
+  modifier: String
+  raised: Float
+  start_time: DateTime
+  end_time: DateTime
+  vod: String
+  time_offset: Int
+  runners: [Runner]
+  filenames: [Filename]
+}
+
+type SoundsData {
+  updated: DateTime
+  matching: Boolean
+  sounds: [Sound]
+}
+
+# Amount is an integer, to get the true monetary amount, divide by 100
+type Sound {
+  amount: ID!
+  description: String
+  verified: Boolean
+  newsound: Boolean
+  matched: Boolean
+}
+
+# The "Query" type is special: it lists all of the available queries that
+# clients can execute, along with the return type for each. In this
+# case, the "books" query returns an array of zero or more Books (defined above).
+type Query {
+  tempsqhouses: [TempSideQuestHouse]
+  tempsqhouseusers: [TempSideQuestHouseUser]
+  attendees: [Attendee]
+  attendee(id: Int!): Attendee
+  charities: [Charity]
+  charity(id: Int!): Charity
+  games: [Game]
+  game(id: Int!): Game
+  marathons(id: Int): [Marathon]
+  marathon(id: Int!): Marathon
+  segment(id: Int!): Segment
+  segments(method: String!, id: Int!): [Segment]
+  sounds: [Sound]
+  sound(amount: Int!): Sound
+  soundsdata: SoundsData
+}

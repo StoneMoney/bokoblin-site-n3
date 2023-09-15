@@ -1,0 +1,83 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Support - Bokoblin',
+})
+useServerSeoMeta({
+  description: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  ogTitle: 'Support - Bokoblin',
+  ogDescription: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  themeColor: '#FF5959'
+})
+</script>
+<template>
+  <div>
+    <div class="m-3 mx-auto max-w-xl">
+      <h1 class="text-3xl">
+        Support Bokoblin
+      </h1>
+      <h3 class="text-2xl">
+        Patreon
+      </h3>
+      <p>
+        Bokoblin is hosted out-of-pocket by StoneMoney, if you wish to support the project by chipping in for hosting, domain, and server costs you can do so on their Patreon page. Some goals have been set up as well, should they be met, Bokoblin can expand to accomodate even more!
+      </p>
+      <p>
+        We also have a merch store available, get your very own Bokoskull shirt or hoodie! Approximately $5-6 from each sale goes to server costs (the remainder is manufacturing costs)
+      </p>
+      <div class="flex">
+        <nuxt-link
+          href="https://www.patreon.com/stonemoney"
+          target="_blank"
+          rel="noopener"
+          class="mr-1 my-1 p-1 bg-orange-400 hover:bg-orange-500 rounded font-bold"
+        >
+          <Icon name="mdi:patreon" /> Support on Patreon
+        </nuxt-link>
+        <nuxt-link
+          href="https://bokoblin-shop.fourthwall.com/"
+          target="_blank"
+          rel="noopener"
+          class="mr-1 my-1 p-1 bg-red-400 hover:bg-red-500 rounded font-bold"
+        >
+          <Icon name="mdi:tshirt-crew" /> Purchase Merch
+        </nuxt-link>
+      </div>
+      <h3 class="mt-3 text-2xl">
+        Archiver
+      </h3>
+      <p>If you would like to assist in archiving data for future events, please join the Doc Team discord!</p>
+      <nuxt-link
+        href="https://discord.gg/bUjNJ9j"
+        target="_blank"
+        rel="noopener"
+        class="mr-1 my-1 p-1 bg-blue-400 hover:bg-blue-500 rounded font-bold"
+      >
+        <Icon name="ic:baseline-discord" /> Our Discord
+      </nuxt-link>
+      <h3 class="mt-3 text-2xl">
+        Developer
+      </h3>
+      <p>The Bokoblin front-end is open source and welcome to PRs on Github!</p>
+      <nuxt-link
+        href="https://github.com/StoneMoney/bokoblin-website"
+        target="_blank"
+        rel="noopener"
+        class="mr-1 my-1 p-1 bg-gray-400 hover:bg-gray-500 rounded font-bold"
+      >
+        <Icon name="mdi:github" /> Classic Github Repo
+      </nuxt-link>
+      <h3 class="mt-3 text-2xl">
+        Feedback
+      </h3>
+      <p>If you have feedback, feel free to send it to <a href="mailto:feedback@stone.money">feedback@stone.money</a> or DM Stone on Discord</p>
+      <nuxt-link
+        href="mailto:feedback@stone.money"
+        target="_blank"
+        rel="noopener"
+        class="mr-1 my-1 p-1 bg-gray-400 hover:bg-gray-500 rounded font-bold"
+      >
+        <Icon name="material-symbols:mail" /> Email Us!
+      </nuxt-link>
+    </div>
+  </div>
+</template>

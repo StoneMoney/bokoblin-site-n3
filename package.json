@@ -1,0 +1,56 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "graphql-codegen && nuxt generate",
+    "predev": "graphql-codegen",
+    "prebuild": "graphql-codegen",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "prisma": {
+    "schema": "database/schema.prisma"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/algolia": "^1.9.0",
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@tailwindcss/forms": "^0.5.5",
+    "@types/node": "^18.17.3",
+    "@typescript-eslint/parser": "^6.6.0",
+    "chart.js": "^4.4.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.48.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "lite-youtube-embed": "^0.2.0",
+    "nuxt": "^3.7.0",
+    "nuxt-headlessui": "^1.1.4",
+    "nuxt-icon": "^0.5.0",
+    "prisma": "^5.1.1",
+    "typescript": "^5.2.2",
+    "vue-chartjs": "^5.2.0",
+    "vue-lite-youtube-embed": "^1.2.0"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.1",
+    "@as-integrations/h3": "^1.1.5",
+    "@prisma/client": "^5.1.1",
+    "graphql": "^16.8.0",
+    "graphql-scalars": "^1.22.2",
+    "nuxt-graphql-server": "^2.0.1",
+    "vue-instantsearch": "^4.10.11"
+  },
+  "resolutions": {
+    "tslib": "2.5.1"
+  }
+}

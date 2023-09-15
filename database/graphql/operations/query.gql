@@ -1,0 +1,22 @@
+query getMarathons() {
+    marathons {
+        id
+        name
+        city
+        state
+        country
+        date
+        url
+        time
+        distance
+        elevation
+        latitude
+        longitude
+        description
+        image
+        imageCredit
+        imageCreditLink
+        createdAt
+        updatedAt
+    }
+}

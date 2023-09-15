@@ -1,0 +1,228 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model attendance {
+  attendee_id Int
+  marathon_id Int
+  award       String?  @db.VarChar(300)
+  location    String?  @default("1") @db.VarChar(45)
+  attendee    attendee @relation(fields: [attendee_id], references: [id], onUpdate: Restrict, map: "fk_attendee1")
+  marathon    marathon @relation(fields: [marathon_id], references: [id], onUpdate: Restrict, map: "fk_marathon2")
+
+  @@id([attendee_id, marathon_id], map: "idx_16873_primary")
+  @@index([marathon_id], map: "idx_16873_fk_marathon2")
+}
+
+model attendee {
+  id                          Int              @id(map: "idx_16878_primary")
+  kinstone_id                 Int?
+  name                        String           @db.VarChar(250)
+  alias                       String?          @db.VarChar(250)
+  twitch_login                String           @db.VarChar(50)
+  rank                        Int              @default(1)
+  house                       Int              @default(0)
+  attendance                  attendance[]
+  house_attendee_houseTohouse house            @relation("attendee_houseTohouse", fields: [house], references: [id], onUpdate: Restrict, map: "fk_house")
+  attendee_rank               attendee_rank    @relation(fields: [rank], references: [id], onUpdate: Restrict, map: "fk_rank")
+  segment_runner              segment_runner[]
+
+  @@index([house], map: "idx_16878_fk_house")
+  @@index([rank], map: "idx_16878_fk_rank")
+}
+
+model attendee_rank {
+  id       Int        @id(map: "idx_16887_primary") @default(autoincrement())
+  title    String     @db.VarChar(16)
+  attendee attendee[]
+}
+
+model charity {
+  id                                 Int        @id(map: "idx_16892_primary") @default(autoincrement())
+  slug                               String     @db.VarChar(50)
+  full_name                          String     @db.VarChar(150)
+  website                            String?    @db.VarChar(250)
+  marathon_marathon_charityTocharity marathon[] @relation("marathon_charityTocharity")
+}
+
+model donations_over_time {
+  marathon_id Int
+  hour        Decimal  @db.Decimal(5, 1)
+  total       Decimal  @db.Decimal(8, 2)
+  marathon    marathon @relation(fields: [marathon_id], references: [id], onUpdate: Restrict, map: "fk_marathondot")
+
+  @@id([marathon_id, hour], map: "idx_16897_primary")
+}
+
+model games {
+  id      Int       @id(map: "idx_16900_primary")
+  title   String    @db.VarChar(200)
+  iszelda Boolean
+  isevent Boolean
+  segment segment[]
+}
+
+model house {
+  id                             Int        @id(map: "idx_16904_primary") @default(autoincrement())
+  title                          String     @db.VarChar(40)
+  color                          String?    @db.VarChar(6)
+  attendee_attendee_houseTohouse attendee[] @relation("attendee_houseTohouse")
+}
+
+model logins {
+  id            Int    @id(map: "idx_16919_primary")
+  access_token  String @db.VarChar(250)
+  refresh_token String @db.VarChar(250)
+  expiration    Int
+  slug          String @db.VarChar(40)
+}
+
+model logins_example {
+  id       BigInt @id(map: "idx_16925_primary") @default(autoincrement())
+  username String @db.VarChar(40)
+  password String @db.VarChar(200)
+}
+
+model marathon {
+  id                                Int                   @id(map: "idx_16929_primary")
+  type                              Int
+  slug                              String                @db.VarChar(50)
+  full_name                         String                @db.VarChar(200)
+  total                             Decimal               @db.Decimal(10, 2)
+  start_date                        DateTime              @db.Timestamptz(6)
+  stop_date                         DateTime              @db.Timestamptz(6)
+  playlist                          String?               @db.VarChar(90)
+  charity                           Int
+  color                             String                @db.VarChar(6)
+  attendance                        attendance[]
+  donations_over_time               donations_over_time[]
+  charity_marathon_charityTocharity charity               @relation("marathon_charityTocharity", fields: [charity], references: [id], onUpdate: Restrict, map: "fk_charity")
+  marathon_type                     marathon_type         @relation(fields: [type], references: [id], onUpdate: Restrict, map: "fk_type")
+  segment                           segment[]
+
+  @@index([charity], map: "idx_16929_fk_charity")
+  @@index([type], map: "idx_16929_fk_type")
+}
+
+model marathon_type {
+  id       Int        @id(map: "idx_16933_primary")
+  title    String     @db.VarChar(40)
+  marathon marathon[]
+}
+
+model runner_rank {
+  id             Int              @id(map: "idx_16937_primary") @default(autoincrement())
+  sort_id        Int
+  title          String           @db.VarChar(40)
+  segment_runner segment_runner[]
+}
+
+model segment {
+  id               Int                @id(map: "idx_16941_primary")
+  marathon_id      Int
+  game_id          Int
+  modifier         String?            @db.VarChar(250)
+  raised           Decimal            @default(0.00) @db.Decimal(9, 2)
+  start_time       DateTime           @db.Timestamptz(6)
+  end_time         DateTime           @db.Timestamptz(6)
+  vod              String?            @db.VarChar(25)
+  time_offset      Int?
+  games            games              @relation(fields: [game_id], references: [id], onUpdate: Restrict, map: "fk_game")
+  marathon         marathon           @relation(fields: [marathon_id], references: [id], onUpdate: Restrict, map: "fk_marathon")
+  segment_filename segment_filename[]
+  segment_runner   segment_runner[]
+
+  @@index([game_id], map: "idx_16941_fk_game")
+  @@index([marathon_id], map: "idx_16941_fk_marathon")
+}
+
+model segment_filename {
+  segment_id Int
+  filename   String  @db.VarChar(40)
+  note       String? @db.VarChar(120)
+  segment    segment @relation(fields: [segment_id], references: [id], onUpdate: Restrict, map: "fk_segment2")
+
+  @@id([segment_id, filename], map: "idx_16947_primary")
+}
+
+model segment_runner {
+  segment_id  Int
+  attendee_id Int
+  rank        Int         @default(0)
+  attendee    attendee    @relation(fields: [attendee_id], references: [id], onUpdate: Restrict, map: "fk_attendie")
+  runner_rank runner_rank @relation(fields: [rank], references: [id], onUpdate: Restrict, map: "fk_runnerrank")
+  segment     segment     @relation(fields: [segment_id], references: [id], onUpdate: Restrict, map: "fk_segment")
+
+  @@id([segment_id, attendee_id], map: "idx_16951_primary")
+  @@index([attendee_id], map: "idx_16951_fk_attendie")
+  @@index([rank], map: "idx_16951_fk_runnerrank")
+}
+
+model sidequest_housechallenge {
+  id                  Int                 @id(map: "idx_16955_primary")
+  access_token        String              @db.VarChar(250)
+  refresh_token       String              @db.VarChar(250)
+  expiration          Int
+  slug                String              @db.VarChar(40)
+  house               Int
+  decided_time        DateTime?           @db.Timestamptz(6)
+  sidequest_houseinfo sidequest_houseinfo @relation(fields: [house], references: [id], onUpdate: Restrict, map: "fk_sqhouse")
+
+  @@index([house], map: "idx_16955_fk_sqhouse")
+}
+
+model sidequest_houseinfo {
+  id                         Int                          @id(map: "idx_16960_primary")
+  name                       String                       @db.VarChar(9)
+  color                      String                       @db.VarChar(6)
+  score                      Int
+  sidequest_housechallenge   sidequest_housechallenge[]
+  sidequest_housetransaction sidequest_housetransaction[]
+}
+
+model sidequest_housetransaction {
+  id                  BigInt              @id(map: "idx_16964_primary") @default(autoincrement())
+  amount              Int
+  team                Int
+  reason              String
+  sidequest_houseinfo sidequest_houseinfo @relation(fields: [team], references: [id], onUpdate: Restrict, map: "fk_team")
+
+  @@index([team], map: "idx_16964_fk_team")
+}
+
+model sounds {
+  amount      Int      @id(map: "idx_16970_primary")
+  description String?
+  isverified  Boolean? @default(false)
+  isnew       Boolean? @default(false)
+  ismatched   Boolean? @default(false)
+}
+
+model sounds_data {
+  id           Int      @id(map: "idx_16978_primary")
+  last_updated DateTime @db.Timestamptz(6)
+  ismatching   Boolean
+}
+
+model jamtrain_reacts {
+  request_id        Int
+  react_id          Int
+  user              String            @db.VarChar(35)
+
+  @@id([request_id, react_id, user], map: "idx_16909_primary")
+  @@ignore
+}
+
+model jamtrain_requests {
+  id              BigInt            @id(map: "idx_16913_primary") @default(autoincrement())
+  string          String            @db.VarChar(200)
+  href            String
+  room            String            @db.VarChar(5)
+  status          String            @db.VarChar(15)
+  @@ignore
+}
