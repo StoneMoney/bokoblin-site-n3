@@ -6,7 +6,7 @@
     "dev": "nuxt dev",
     "generate": "graphql-codegen && nuxt generate",
     "predev": "graphql-codegen",
-    "prebuild": "graphql-codegen",
+    "prebuild": "graphql-codegen && prisma generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
