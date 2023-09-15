@@ -11315,7 +11315,7 @@ vue-eslint-parser@^9.3.1:
     lodash "^4.17.21"
     semver "^7.3.6"
 
-vue-instantsearch@^4.10.11, vue-instantsearch@^4.3.2:
+vue-instantsearch@^4.3.2:
   version "4.10.11"
   resolved "https://registry.yarnpkg.com/vue-instantsearch/-/vue-instantsearch-4.10.11.tgz#f186b273a8843d6ca3e61bf6fc5e492bb343a204"
   integrity sha512-lLUS6tMc9wAhSyHvmnOMjOrrPsumnZuINqTFeAYyOEzdgjmy1+77a2M/PuyQrsoI7XRTa3ZRV33DzviBr+RLsQ==

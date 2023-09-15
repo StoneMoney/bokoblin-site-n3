@@ -1,0 +1,41 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Building
+        run: |
+          yarn
+          NITRO_PORT=3333 yarn build
+      - name: Move build to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: .output
+          remote: /var/www/bokoblin-site-n3/.output
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.KEY }}
+      - name: Deploying
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            # Pull and build new version
+            cd /var/www/bokoblin-site-n3
+            git checkout main
+            git fetch --all
+            git reset --hard origin/main
+            pm2 restart ecosystem.config.js --env production

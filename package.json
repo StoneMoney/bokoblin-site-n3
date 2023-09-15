@@ -20,7 +20,6 @@
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.2.0",
-    "@nuxtjs/algolia": "^1.9.0",
     "@nuxtjs/apollo": "^5.0.0-alpha.6",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/eslint-module": "^4.1.0",
@@ -47,8 +46,7 @@
     "@prisma/client": "^5.1.1",
     "graphql": "^16.8.0",
     "graphql-scalars": "^1.22.2",
-    "nuxt-graphql-server": "^2.0.1",
-    "vue-instantsearch": "^4.10.11"
+    "nuxt-graphql-server": "^2.0.1"
   },
   "resolutions": {
     "tslib": "2.5.1"

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/algolia',
+    // '@nuxtjs/algolia',
     '@nuxtjs/apollo',
     '@nuxtjs/tailwindcss',
     'nuxt-headlessui',
@@ -28,13 +28,13 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
     }
   },
-  algolia: {
-    apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
-    applicationId: process.env.ALGOLIA_APPLICATION_ID,
-    instantSearch: {
-      theme: 'algolia'
-    }
-  },
+  // algolia: {
+  //   apiKey: process.env.ALGOLIA_SEARCH_API_KEY,
+  //   applicationId: process.env.ALGOLIA_APPLICATION_ID,
+  //   instantSearch: {
+  //     theme: 'algolia'
+  //   }
+  // },
   apollo: {
     clients: {
       default: {
