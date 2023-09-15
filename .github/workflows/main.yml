@@ -25,7 +25,7 @@ jobs:
           target: "/var/www/bokoblin-site-n3/"
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.KEY }}
+          key: ${{ secrets.KEY }}
           overwrite: true
       - name: Deploying
         uses: appleboy/ssh-action@master
