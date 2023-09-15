@@ -269,11 +269,16 @@ if(segment.value) {
           Video
         </h3>
         <div class="border rounded-md text-center dark:border-gray-600">
-          <lite-youtube
-            :videoid="segment.vod"
-            :params="`modestbranding=1&start=${segment.time_offset}${segment.marathon ? '&list='+segment.marathon.playlist : ''}`"
-            class="p-2 mx-auto my-2"
-          />
+          <client-only
+            fallback-tag="span"
+            fallback="Loading YouTube Embed..."
+          >
+            <lite-youtube
+              :videoid="segment.vod"
+              :params="`modestbranding=1&start=${segment.time_offset}${segment.marathon ? '&list='+segment.marathon.playlist : ''}`"
+              class="p-2 mx-auto my-2"
+            />
+          </client-only>
           <div class=" mb-2">
             <nuxt-link
               class="hover:underline text-blue-500"
