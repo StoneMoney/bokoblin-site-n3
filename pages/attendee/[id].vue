@@ -203,7 +203,7 @@ if(attendee.value) {
                 <img
                   :src="`/marathon/${attending.marathon.id}.svg`"
                   class="h-6"
-                  :title="`${attending.award ? `'${attending.award}' award - ` : ''}${attending.location}${runnerEvents?.has(attending.marathon.id) ? ' - Runner' : ''}`"
+                  :title="`${attending.award ? `'${attending.award}' award - ` : ''}${attending.location}${runnerEvents?.has(attending.marathon.id) ? ' - On Segments' : ''}`"
                 >
               </nuxt-link>
             </div>
@@ -224,7 +224,7 @@ if(attendee.value) {
                 <img
                   :src="`/icons/${attending.marathon.type}.svg`"
                   class="h-6 invert"
-                  :title="`${attending.marathon.full_name}${runnerEvents?.has(attending.marathon.id) ? ' - Runner' : ''}`"
+                  :title="`${attending.marathon.full_name}${runnerEvents?.has(attending.marathon.id) ? ' - On Segments' : ''}`"
                 >
               </nuxt-link>
             </div>

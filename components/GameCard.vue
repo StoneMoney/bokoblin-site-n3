@@ -28,7 +28,7 @@ const totalTime = totalTimeInt >= 0 ? toTimestamp(new Date(0),new Date(totalTime
             name="clarity:dollar-bill-solid"
             size="1.2rem"
           />
-          {{ total }} Raised
+          {{ toUSD(total) }} Raised
         </div>
         <div v-else>
           &nbsp;
