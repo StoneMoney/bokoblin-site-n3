@@ -202,6 +202,7 @@ useServerSeoMeta({
           >Quick search</label>
           <div class="relative mt-2 flex items-center">
             <input
+              id="search"
               v-model="search"
               type="text"
               name="search"

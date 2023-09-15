@@ -281,7 +281,7 @@ watch(totalField, () => {
       <div>
         <label
           for="price"
-          class="block text-sm font-medium leading-6 text-gray-900"
+          class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100"
         >Donation Total</label>
         <div class="relative my-2 rounded-md shadow-sm">
           <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -292,7 +292,7 @@ watch(totalField, () => {
             v-model="totalField"
             type="text"
             name="price"
-            class="block w-full rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            class="block w-full rounded-md border-0 py-1.5 pl-7 pr-12 text-gray-900 dark:text-gray-100 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-black"
             placeholder="0.00"
             aria-describedby="price-currency"
           >

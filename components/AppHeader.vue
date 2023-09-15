@@ -15,7 +15,7 @@ watch(router.currentRoute, () => {
           <img
             src="/img/bokoskull.svg"
             alt="Bokoblin"
-            class="h-6"
+            class="h-6 w-6"
           >
           Bokoblin
         </div>

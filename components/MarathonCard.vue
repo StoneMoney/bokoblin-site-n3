@@ -27,11 +27,11 @@ const stopDate = toReadableDate(props.data.stop_date)
           class="pb-2"
         >
           {{ total }} for
-          <a
-            ref="noopener"
-            :href="props.data.charity.website"
-            target="_blank"
-          >{{ props.data.charity.full_name }}</a>
+          <nuxt-link
+            :to="`/cause/${props.data.charity.id}`"
+          >
+            {{ props.data.charity.full_name }}
+          </nuxt-link>
         </div>
         <div v-else>
           {{ total }} raised
