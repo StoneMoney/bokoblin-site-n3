@@ -24,8 +24,8 @@ jobs:
             ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
             SOUNDS_KEY: ${{ secrets.SOUNDS_KEY }}
         run: |
-          SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm_config_arch=arm64v8 npm_config_platform=linux yarn add sharp
           yarn
+          npm_config_target_arch=arm64 npm_config_target_platform=linux yarn add sharp
           yarn build
       - name: Move build to remote
         uses: appleboy/scp-action@master
