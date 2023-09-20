@@ -1,9 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  imports: {
-    dirs: ["./lib/composables"],
-  },
   modules: [
     "@nuxtjs/eslint-module",
     // '@nuxtjs/algolia',
@@ -13,6 +10,7 @@ export default defineNuxtConfig({
     "nuxt-headlessui",
     "nuxt-icon",
     "nuxt-graphql-server",
+    "@vite-pwa/nuxt",
   ],
   css: ["lite-youtube-embed/src/lite-yt-embed.css"],
   plugins: ["~/plugins/youtube.client.js"],
@@ -52,6 +50,24 @@ export default defineNuxtConfig({
         httpEndpoint: `${process.env.BASE_URL}/api/graphql`,
       },
     },
+  },
+  pwa: {
+    manifest: {
+      name: 'Bokoblin Archives',
+      short_name: 'Bokoblin',
+      description: 'Bokoblin, archived data of Kinstone-operated charity marathons',
+      display: 'standalone',
+      background_color: '#ffffff',
+      theme_color: '#343a40',
+      lang: 'en',
+    },
+    workbox: {
+      navigateFallback: '/',
+    },
+    devOptions: {
+      enabled: true,
+      type: 'module'
+    }
   },
   runtimeConfig: {
     SOUNDS_KEY: process.env.SOUNDS_KEY,

@@ -142,7 +142,7 @@ useServerSeoMeta({
         class="hover:shadow-lg shadow-none transition-shadow"
       />
     </div>
-    <div class="grid grid-cols-3 w-max gap-3 p-3">
+    <div class="grid grid-cols-1 sm:grid-cols-3 w-max gap-3 p-3">
       <div class="dark:bg-slate-700 bg-slate-100 rounded border dark:border-gray-600 flex-1 flex justify-center divide-x dark:divide-gray-600">
         <nuxt-link
           to="https://docs.google.com/spreadsheets/d/1IMKG7Zy0mcIVN1K7nMctboFg4Lr5csNlgtjqyfv9o7Y/"
@@ -158,7 +158,7 @@ useServerSeoMeta({
       </div>
       <div class="dark:bg-slate-700 bg-slate-100 rounded border dark:border-gray-600 flex-1 flex justify-center divide-x dark:divide-gray-600">
         <nuxt-link
-          to="https://docs.google.com/spreadsheets/d/1IMKG7Zy0mcIVN1K7nMctboFg4Lr5csNlgtjqyfv9o7Y/"
+          to="https://docs.google.com/spreadsheets/d/1gTZwLgvd6H9ZCM-ZIieLYbkHX0jdXyglmisF2VtKpnE/"
           class="py-2 w-full text-center"
           target="_blank"
         >

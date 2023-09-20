@@ -1,5 +1,6 @@
 <template>
   <div>
+    <VitePwaManifest />
     <NuxtLoadingIndicator color="#ff5959" />
     <AppHeader class="sticky top-0 bg-white dark:bg-slate-900 z-[9999]" />
     <div class="flex items-center flex-col">
