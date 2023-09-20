@@ -53,6 +53,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    SOUNDS_KEY: process.env.SOUNDS_KEY,
     public: {
       baseUrl: process.env.BASE_URL,
       graphqlBaseUrl: process.env.GRAPHQL_BASE_URL || process.env.BASE_URL,

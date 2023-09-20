@@ -104,7 +104,7 @@ export type SoundsData = {
 };
 
 export type Sound = {
-  amount: string;
+  amount: number;
   description: string;
   verified: boolean;
   newsound: boolean;

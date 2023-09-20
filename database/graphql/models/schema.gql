@@ -105,9 +105,25 @@ type SoundsData {
   sounds: [Sound]
 }
 
+input SoundsDataInput {
+  updated: DateTime
+  matching: Boolean
+  sounds: [SoundInput]
+}
+
+
 # Amount is an integer, to get the true monetary amount, divide by 100
 type Sound {
-  amount: ID!
+  amount: Int
+  description: String
+  verified: Boolean
+  newsound: Boolean
+  matched: Boolean
+}
+
+
+input SoundInput {
+  amount: Int
   description: String
   verified: Boolean
   newsound: Boolean
@@ -133,4 +149,8 @@ type Query {
   sounds: [Sound]
   sound(amount: Int!): Sound
   soundsdata: SoundsData
+}
+
+type Mutation {
+  soundsdata(soundsdata: SoundsDataInput, key: String): String
 }

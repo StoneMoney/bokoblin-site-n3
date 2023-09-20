@@ -1,6 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
-  binaryTargets = ["linux-arm64-openssl-3.0.x","native"]
+  provider      = "prisma-client-js"
+  binaryTargets = ["linux-arm64-openssl-3.0.x", "native"]
 }
 
 datasource db {
@@ -199,31 +199,13 @@ model sidequest_housetransaction {
 model sounds {
   amount      Int      @id(map: "idx_16970_primary")
   description String?
-  isverified  Boolean? @default(false)
-  isnew       Boolean? @default(false)
-  ismatched   Boolean? @default(false)
+  verified    Boolean? @default(false)
+  newsound    Boolean? @default(false)
+  matched     Boolean? @default(false)
 }
 
 model sounds_data {
-  id           Int      @id(map: "idx_16978_primary")
-  last_updated DateTime @db.Timestamptz(6)
-  ismatching   Boolean
-}
-
-model jamtrain_reacts {
-  request_id        Int
-  react_id          Int
-  user              String            @db.VarChar(35)
-
-  @@id([request_id, react_id, user], map: "idx_16909_primary")
-  @@ignore
-}
-
-model jamtrain_requests {
-  id              BigInt            @id(map: "idx_16913_primary") @default(autoincrement())
-  string          String            @db.VarChar(200)
-  href            String
-  room            String            @db.VarChar(5)
-  status          String            @db.VarChar(15)
-  @@ignore
+  id       Int      @id(map: "idx_16978_primary")
+  updated  DateTime @db.Timestamptz(6)
+  matching Boolean
 }

@@ -1,6 +1,8 @@
+import { SoundsData } from '@/models/api'
 import { PrismaClient } from '@prisma/client'
 import { DateTimeResolver } from 'graphql-scalars'
 const prisma = new PrismaClient()
+//  Runtime config for use of environment variables in nuxt.config.ts
 
 export default {
     DateTime: DateTimeResolver,
@@ -247,6 +249,30 @@ export default {
         },
         soundsdata: async () => {
             return await prisma.sounds_data.findMany()
+        }
+    },
+    Mutation: {
+        soundsdata: async (_ctx: {}, { soundsdata, key }: { soundsdata: SoundsData, key: string }) => {
+            if(key != useRuntimeConfig().SOUNDS_KEY) return useRuntimeConfig().SOUNDS_KEY
+            const data = await prisma.sounds_data.upsert({
+                create: {
+                    id: 1,
+                    matching: soundsdata.matching ?? false,
+                    updated: soundsdata.updated ?? new Date().toISOString()
+                },
+                update: {
+                    matching: soundsdata.matching ?? false,
+                    updated: soundsdata.updated ?? new Date().toISOString()
+                },
+                where: {
+                    id: 1
+                }
+            })
+            await prisma.sounds.deleteMany()
+            await prisma.sounds.createMany({
+                data: soundsdata.sounds
+            })
+            return data.id == 1 ? "Success" : "Failure"
         }
     }
 }
