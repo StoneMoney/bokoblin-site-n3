@@ -16,6 +16,13 @@ jobs:
         with:
           node-version: 18
       - name: Building
+        env:
+            BASE_URL: ${{ vars.BASE_URL }}
+            GRAPHQL_URL: ${{ vars.GRAPHQL_URL }}
+            DATABASE_URL: ${{ secrets.DATABASE_URL }}
+            ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+            ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+            SOUNDS_KEY: ${{ secrets.SOUNDS_KEY }}
         run: |
           yarn
           yarn build
