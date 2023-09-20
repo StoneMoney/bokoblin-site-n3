@@ -254,7 +254,7 @@ export default {
     Mutation: {
         soundsdata: async (_ctx: {}, { soundsdata, key }: { soundsdata: SoundsData, key: string }) => {
             if(key != useRuntimeConfig().SOUNDS_KEY) return false
-            const data = await prisma.sounds_data.upsert({
+            await prisma.sounds_data.upsert({
                 create: {
                     id: 1,
                     matching: soundsdata.matching ?? false,
@@ -272,7 +272,7 @@ export default {
             await prisma.sounds.createMany({
                 data: soundsdata.sounds
             })
-            return data.id == 1
+            return true
         }
     }
 }

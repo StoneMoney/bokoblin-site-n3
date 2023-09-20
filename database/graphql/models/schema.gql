@@ -152,5 +152,5 @@ type Query {
 }
 
 type Mutation {
-  soundsdata(soundsdata: SoundsDataInput, key: String): String
+  soundsdata(soundsdata: SoundsDataInput, key: String): Boolean
 }
