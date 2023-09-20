@@ -21,14 +21,16 @@ const total = toUSD(props.data.total)
           v-if="props.data.website"
           class="pb-2"
         >
-          <a
+          <nuxt-link
             ref="noopener"
-            :href="props.data.website"
+            :to="props.data.website"
             target="_blank"
-          >Visit Website</a>
+          >
+            Visit Website
+          </nuxt-link>
         </div>
       </div>
-      <div class="flex sm:flex-col text-gray-400 items-end justify-around col-span-2 sm:col-span-1">
+      <div class="grid grid-cols-2 sm:flex sm:flex-col text-gray-400 items-end justify-around col-span-2 sm:col-span-1">
         <div
           v-if="total"
           class="flex items-center gap-1"
@@ -37,7 +39,7 @@ const total = toUSD(props.data.total)
             name="clarity:dollar-bill-solid"
             size="1.2rem"
           />
-          {{ total }} Raised
+          {{ total }}
         </div>
         <div
           v-if="props.data.marathons.length > 0"

@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import type { Game as GameBase } from '@/models/api'
+import type { Game } from '@/models/api'
 import type { SortOption, FilterOption } from '@/models/data'
-interface Game extends GameBase {
-  total: number | undefined;
-  totalTime: number | undefined;
-}
 const query = gql`
   query {
     games {
@@ -37,6 +33,13 @@ type RespondData = {
 const { data } = await useAsyncQuery<RespondData>(query)
 const { pending, data: lazyData } = await useLazyAsyncQuery<RespondData>(lazyQuery)
 
+function getGameTotalTime(game: Game): number {
+  return game.segments?.reduce((a, b) => a + (getDurationNumberal(b.start_time, b.end_time)), 0) ?? 0
+}
+function getGameTotal(game: Game): number {
+  return game.segments?.reduce((a, b) => a + (b.raised ?? 0), 0) ?? 0
+}
+
 const sortOptions: SortOption<Game>[] = [
   {
     name: 'Alphabetical',
@@ -54,13 +57,13 @@ const sortOptions: SortOption<Game>[] = [
     name: 'Screentime',
     value: 'screentime',
     icon: 'mdi:clock-time-four-outline',
-    sort: (a, b) => (a.totalTime ?? 0) - (b.totalTime ?? 0)
+    sort: (a, b) => getGameTotalTime(b) - getGameTotalTime(a)
   },
   {
     name: 'Total Raised',
     value: 'total',
     icon: 'mdi:sort-numeric-ascending',
-    sort: (a, b) => (b.total ?? 0) - (a.total ?? 0)
+    sort: (a, b) => getGameTotal(b) - getGameTotal(a)
   },
   {
     name: 'Segment Count',

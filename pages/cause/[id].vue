@@ -148,7 +148,8 @@ if(cause.value) {
               class="p-2"
             >
               <nuxt-link
-                :href="cause.website"
+                :to="cause.website"
+                target="_blank"
               >
                 <Icon
                   name="mdi:web"

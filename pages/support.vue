@@ -12,7 +12,7 @@ useServerSeoMeta({
 <template>
   <div>
     <div class="m-3 mx-auto max-w-xl">
-      <h1 class="text-3xl">
+      <h1 class="text-3xl mb-4">
         Support Bokoblin
       </h1>
       <h3 class="text-2xl">
@@ -29,7 +29,7 @@ useServerSeoMeta({
           href="https://www.patreon.com/stonemoney"
           target="_blank"
           rel="noopener"
-          class="mr-1 my-1 p-1 bg-orange-400 hover:bg-orange-500 rounded font-bold"
+          class="mr-1 my-2 p-2 bg-orange-400 hover:bg-orange-500 rounded font-semibold text-white"
         >
           <Icon name="mdi:patreon" /> Support on Patreon
         </nuxt-link>
@@ -37,7 +37,7 @@ useServerSeoMeta({
           href="https://bokoblin-shop.fourthwall.com/"
           target="_blank"
           rel="noopener"
-          class="mr-1 my-1 p-1 bg-red-400 hover:bg-red-500 rounded font-bold"
+          class="mr-1 my-2 p-2 bg-red-400 hover:bg-red-500 rounded font-semibold text-white"
         >
           <Icon name="mdi:tshirt-crew" /> Purchase Merch
         </nuxt-link>
@@ -45,36 +45,50 @@ useServerSeoMeta({
       <h3 class="mt-3 text-2xl">
         Archiver
       </h3>
-      <p>If you would like to assist in archiving data for future events, please join the Doc Team discord!</p>
+      <p class="my-2">
+        If you would like to assist in archiving data for future events, please join the Doc Team discord!
+      </p>
       <nuxt-link
         href="https://discord.gg/bUjNJ9j"
         target="_blank"
         rel="noopener"
-        class="mr-1 my-1 p-1 bg-blue-400 hover:bg-blue-500 rounded font-bold"
+        class="mr-1 my-2 p-2 bg-blue-400 hover:bg-blue-500 rounded font-semibold text-white"
       >
         <Icon name="ic:baseline-discord" /> Our Discord
       </nuxt-link>
       <h3 class="mt-3 text-2xl">
         Developer
       </h3>
-      <p>The Bokoblin front-end is open source and welcome to PRs on Github!</p>
+      <p class="my-2">
+        The Bokoblin front-end is open source and welcome to PRs on Github!
+      </p>
+      <nuxt-link
+        href="https://github.com/StoneMoney/bokoblin-site-n3"
+        target="_blank"
+        rel="noopener"
+        class="mr-1 my-2 p-2 bg-gray-400 hover:bg-gray-500 rounded font-semibold text-white"
+      >
+        <Icon name="mdi:github" /> N3 Github Repo
+      </nuxt-link>
       <nuxt-link
         href="https://github.com/StoneMoney/bokoblin-website"
         target="_blank"
         rel="noopener"
-        class="mr-1 my-1 p-1 bg-gray-400 hover:bg-gray-500 rounded font-bold"
+        class="mr-1 my-2 p-2 bg-gray-400 hover:bg-gray-500 rounded font-semibold text-white"
       >
         <Icon name="mdi:github" /> Classic Github Repo
       </nuxt-link>
       <h3 class="mt-3 text-2xl">
         Feedback
       </h3>
-      <p>If you have feedback, feel free to send it to <a href="mailto:feedback@stone.money">feedback@stone.money</a> or DM Stone on Discord</p>
+      <p class="my-2">
+        If you have feedback, feel free to send it to <a href="mailto:feedback@stone.money">feedback@stone.money</a> or DM Stone on Discord
+      </p>
       <nuxt-link
         href="mailto:feedback@stone.money"
         target="_blank"
         rel="noopener"
-        class="mr-1 my-1 p-1 bg-gray-400 hover:bg-gray-500 rounded font-bold"
+        class="mr-1 p-2 bg-gray-400 hover:bg-gray-500 rounded font-semibold text-white"
       >
         <Icon name="material-symbols:mail" /> Email Us!
       </nuxt-link>

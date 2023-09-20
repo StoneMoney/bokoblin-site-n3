@@ -156,7 +156,7 @@ export default {
         }
     },
     SoundsData: {
-        sounds: async (parent: any) => {
+        sounds: async () => {
             return await prisma.sounds.findMany()
         }
     },

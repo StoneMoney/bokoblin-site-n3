@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Segment, Runner } from '@/lib/models/api'
+import { Segment, Runner } from '@/models/api'
 
 const props = defineProps({
   data: {
@@ -53,7 +53,7 @@ props.data.runners.forEach((runner: Runner) => {
     </div>
     <div class="grid grid-cols-3 sm:flex sm:flex-col text-gray-400 items-end justify-around col-span-2 sm:col-span-1 pr-2 pt-2">
       <div
-        class="flex items-center justify-center sm:justify-end gap-1"
+        class="flex items-center sm:justify-end gap-1"
       >
         <Icon
           name="bx:stopwatch"
@@ -62,7 +62,7 @@ props.data.runners.forEach((runner: Runner) => {
         {{ toTimestamp(props.data.start_time, props.data.end_time) }}
       </div>
       <div
-        class="flex items-center justify-center sm:justify-end gap-1"
+        class="flex items-center sm:justify-end gap-1"
       >
         <Icon
           name="clarity:dollar-bill-solid"
@@ -75,7 +75,7 @@ props.data.runners.forEach((runner: Runner) => {
         ref="noopener"
         :href="`https://www.youtube.com/watch?v=${ props.data.vod }${ props.data.time_offset ? `&t=${props.data.time_offset}` : '' }`"
         target="_blank"
-        class="flex items-center justify-center sm:justify-end gap-1"
+        class="flex items-center sm:justify-end gap-1"
       >
         <Icon
           name="mdi:youtube"
@@ -225,5 +225,4 @@ props.data.runners.forEach((runner: Runner) => {
       </div>
     </div>
   </div>
-</template>@/utils
-@/models/api
+</template>

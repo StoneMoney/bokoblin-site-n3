@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     // '@nuxtjs/algolia',
     "@nuxtjs/apollo",
+    "@nuxt/image",
     "@nuxtjs/tailwindcss",
     "nuxt-headlessui",
     "nuxt-icon",

@@ -43,12 +43,12 @@ watch(selectedFilterMutation, (newVal) => {
       <div class="relative mt-1">
         <HeadlessListboxButton class="relative w-full cursor-default rounded-md bg-white dark:bg-black py-1.5 pl-3 pr-10 text-left text-gray-900 dark:text-gray-200 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
           <div class="block truncate">
-            <img
+            <NuxtImg
               v-if="selectedSort.icon.indexOf('/icons') == 0"
               :src="selectedSort.icon"
               :alt="selectedSort.name"
               class="h-4 w-4 dark:invert"
-            >
+            />
             <Icon
               v-else
               :name="selectedSort.icon"

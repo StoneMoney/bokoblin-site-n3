@@ -27,11 +27,11 @@ defineProps({
         >
           Something went wrong
         </h2>
-        <img
+        <NuxtImg
           src="/BokoblinError.png"
           alt="Bokoblin Error"
           class="max-w-xl"
-        >
+        />
         <p class="text-center text-sm">
           Art by TsunamiCoRyan
         </p>

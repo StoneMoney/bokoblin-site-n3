@@ -221,11 +221,11 @@ if(attendee.value) {
               :class="`p-2 rounded-full flex items-center justify-center w-12 ${runnerEvents?.has(attending.marathon.id) ? 'border-r-4 border-l-4 border-yellow-400/75' : ''}`"
             >
               <nuxt-link :to="`/marathon/${attending.marathon.id}`">
-                <img
+                <NuxtImg
                   :src="`/icons/${attending.marathon.type}.svg`"
                   class="h-6 invert"
                   :title="`${attending.marathon.full_name}${runnerEvents?.has(attending.marathon.id) ? ' - On Segments' : ''}`"
-                >
+                />
               </nuxt-link>
             </div>
           </div>

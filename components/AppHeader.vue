@@ -12,11 +12,12 @@ watch(router.currentRoute, () => {
     <div class="flex p-3 max-w-5xl gap-1 md:gap-2">
       <NuxtLink to="/">
         <div class="hover:scale-110 transition py-1 px-3 rounded flex gap-2 font-extrabold">
-          <img
+          <NuxtImg
             src="/img/bokoskull.svg"
             alt="Bokoblin"
-            class="h-6 w-6"
-          >
+            width="24"
+            height="24"
+          />
           Bokoblin
         </div>
       </NuxtLink>

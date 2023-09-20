@@ -37,7 +37,7 @@ const stopDate = toReadableDate(props.data.stop_date)
           {{ total }} raised
         </div>
       </div>
-      <div class="flex sm:flex-col text-gray-400 items-end justify-around col-span-2 sm:col-span-1">
+      <div class="grid grid-cols-3 sm:flex sm:flex-col text-gray-400 items-end justify-around col-span-2 sm:col-span-1">
         <div
           v-if="(props.data.segments_count ?? 0) > 0"
           class="flex items-center gap-1"

@@ -3,17 +3,20 @@ const docs = [
   {
     title: 'Current Event',
     description: 'Stats tracking and event log for the most recent marathon, as well as active secret sounds.',
-    image: 'img/doc-preview-current.png'
+    image: 'img/doc-preview-current.png',
+    link: 'https://doc.bokoblin.com'
   },
   {
     title: 'Archive',
     description: 'Overall information for each marathon, game runners, filenames, rankings, and records',
-    image: 'img/doc-preview-archive.png'
+    image: 'img/doc-preview-archive.png',
+    link: 'https://docs.google.com/spreadsheets/d/1mAhSDgMUySGB4rxwFX7DpGrnChZrUs58TbvKAX3fCto/'
   },
   {
     title: 'Zeldathon Logs',
     description: 'Stat tracking and event log for all prior Zeldathon events, and secret sound history.',
-    image: 'img/doc-preview-logs.png'
+    image: 'img/doc-preview-logs.png',
+    link: 'https://docs.google.com/spreadsheets/d/1z2Y_unhykpD4jmpKgRrXagad42Jl7EFRNm7JfqtQQ7c/'
   }
 ]
 const affiliates = [
@@ -46,6 +49,7 @@ const affiliates = [
   {
     title: 'Metroid Marathon',
     image: 'img/affiliates/metroid.gif',
+    imgWidth: 150,
     links: [
       {
         name: 'Primary',
@@ -86,38 +90,40 @@ useServerSeoMeta({
 </script>
 <template>
   <div class="flex flex-col justify-center items-center my-12">
-    <img
+    <NuxtImg
       src="/img/bokoblin.svg"
       alt="Bokoblin"
-      class="max-w-xl"
-    >
+      width="575"
+      height="150"
+      sizes="sm:350 md:475 lg:575"
+    />
     <h1 class="text-3xl font-bold my-2">
       Kinstone Archives
     </h1>
     <div class="flex flex-wrap justify-center">
-      <span class="py-1 px-3">Find...</span>
+      <span class="p-3">Find...</span>
       <NuxtLink to="/marathons">
-        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 py-1 px-3 rounded">
+        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 p-3 rounded">
           Marathons
         </div>
       </NuxtLink>
       <NuxtLink to="/sounds">
-        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 py-1 px-3 rounded">
+        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 p-3 rounded">
           Sounds
         </div>
       </NuxtLink>
       <NuxtLink to="/games">
-        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 py-1 px-3 rounded">
+        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 p-3 rounded">
           Games
         </div>
       </NuxtLink>
       <NuxtLink to="/attendees">
-        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 py-1 px-3 rounded">
+        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 p-3 rounded">
           People
         </div>
       </NuxtLink>
       <NuxtLink to="/causes">
-        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 py-1 px-3 rounded">
+        <div class="hover:bg-slate-100 dark:hover:bg-gray-800 p-3 rounded">
           Causes
         </div>
       </NuxtLink>
@@ -132,6 +138,7 @@ useServerSeoMeta({
         :description="doc.description"
         :title="doc.title"
         :image="doc.image"
+        :link="doc.link"
         class="hover:shadow-lg shadow-none transition-shadow"
       />
     </div>
@@ -140,6 +147,7 @@ useServerSeoMeta({
         <nuxt-link
           to="https://docs.google.com/spreadsheets/d/1IMKG7Zy0mcIVN1K7nMctboFg4Lr5csNlgtjqyfv9o7Y/"
           class="py-2 w-full text-center"
+          target="_blank"
         >
           <span
             :class="`px-3 pt-1 pb-2 text-md font-semibold text-blue-500`"
@@ -152,6 +160,7 @@ useServerSeoMeta({
         <nuxt-link
           to="https://docs.google.com/spreadsheets/d/1IMKG7Zy0mcIVN1K7nMctboFg4Lr5csNlgtjqyfv9o7Y/"
           class="py-2 w-full text-center"
+          target="_blank"
         >
           <span
             :class="`px-3 pt-1 pb-2 text-md font-semibold text-blue-500`"
@@ -164,6 +173,7 @@ useServerSeoMeta({
         <nuxt-link
           to="https://docs.google.com/spreadsheets/d/1IMKG7Zy0mcIVN1K7nMctboFg4Lr5csNlgtjqyfv9o7Y/"
           class="py-2 w-full text-center"
+          target="_blank"
         >
           <span
             :class="`px-3 pt-1 pb-2 text-md font-semibold text-blue-500`"
@@ -184,6 +194,7 @@ useServerSeoMeta({
         :links="affiliate.links"
         :image="affiliate.image"
         :invert="affiliate.invert"
+        :img-width="affiliate.imgWidth ?? 200"
         class="hover:shadow-lg shadow-none transition-shadow"
       />
     </div>

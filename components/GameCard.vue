@@ -19,7 +19,7 @@ const totalTime = totalTimeInt >= 0 ? toTimestamp(new Date(0),new Date(totalTime
           </div>
         </nuxt-link>
       </div>
-      <div class="flex sm:flex-col text-gray-400 items-end justify-around col-span-2 sm:col-span-1">
+      <div class="grid grid-cols-3 sm:flex sm:flex-col text-gray-400 sm:items-end sm:justify-around col-span-2 sm:col-span-1">
         <div
           v-if="total"
           class="flex items-center gap-1"
@@ -28,7 +28,7 @@ const totalTime = totalTimeInt >= 0 ? toTimestamp(new Date(0),new Date(totalTime
             name="clarity:dollar-bill-solid"
             size="1.2rem"
           />
-          {{ toUSD(total) }} Raised
+          {{ toUSD(total) }}
         </div>
         <div v-else>
           &nbsp;

@@ -30,13 +30,13 @@ const sortOptions: SortOption<Sound>[] = [
     name: 'Amount Ascending',
     value: 'amount',
     icon: 'mdi:sort-numeric-ascending',
-    sort: (a, b) => parseFloat(a.amount) - parseFloat(b.amount)
+    sort: (a, b) => (a.amount) - (b.amount)
   },
   {
     name: 'Amount Descending',
     value: 'amount',
     icon: 'mdi:sort-numeric-descending',
-    sort: (a, b) => parseFloat(b.amount) - parseFloat(a.amount)
+    sort: (a, b) => (b.amount) - (a.amount)
   },
   {
     name: 'Description Alphabetical',
@@ -148,14 +148,14 @@ useServerSeoMeta({
               name="material-symbols:add-chart-outline-rounded" 
               size="1.2rem"
             />
-            {{ toUSD(data.soundsdata.sounds.reduce((a, b) => a + ((parseFloat(b.amount) ?? 0) / 100), 0)) }} sum
+            {{ toUSD(data.soundsdata.sounds.reduce((a, b) => a + ((b.amount ?? 0) / 100), 0)) }} sum
           </div>
           <div class="p-2">
             <Icon
               name="ic:twotone-graphic-eq" 
               size="1.2rem"
             />
-            {{ toUSD(data.soundsdata.sounds.reduce((a, b) => a + ((parseFloat(b.amount) ?? 0) / 100), 0) / data.soundsdata.sounds.length) }} avg
+            {{ toUSD(data.soundsdata.sounds.reduce((a, b) => a + ((b.amount ?? 0) / 100), 0) / data.soundsdata.sounds.length) }} avg
           </div>
         </div>
         <div class="rounded border divide-y dark:bg-slate-800 dark:border-gray-600 dark:divide-gray-600 my-3">
@@ -263,8 +263,8 @@ useServerSeoMeta({
                 :class="`${sound.matched && isMatching ? 'bg-red-500' : ''}`"
               >
                 <td class="whitespace-nowrap p-2 text-sm font-medium text-gray-900 dark:text-gray-100 sm:pl-3">
-                  <nuxt-link :to="`https://donate.zeldathon.com?amount=${parseFloat(sound.amount)/100}`">
-                    {{ toUSD(parseFloat(sound.amount) / 100) }}
+                  <nuxt-link :to="`https://donate.zeldathon.com?amount=${sound.amount/100}`">
+                    {{ toUSD(sound.amount / 100) }}
                   </nuxt-link>
                 </td>
                 <td class="p-2 text-sm text-gray-500 dark:text-gray-200">
