@@ -24,6 +24,7 @@ jobs:
             ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
             SOUNDS_KEY: ${{ secrets.SOUNDS_KEY }}
         run: |
+          SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm_config_arch=arm64v8 npm_config_platform=linux yarn add sharp
           yarn
           yarn build
       - name: Move build to remote
