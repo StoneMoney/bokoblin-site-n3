@@ -14,10 +14,10 @@ export const toTimestamp = (start_date: Date | string, stop_date: Date | string)
     const stopDate = stop_date.getTime()
     const startDate = start_date.getTime()
     const duration = stopDate - startDate
-    // toFixed(0) removes any possible floating point numbers
-    const seconds: number = Number(((duration / 1000) % 60).toFixed(0))
-    const minutes: number = Number(((duration / (1000 * 60)) % 60).toFixed(0))
-    const hours: number = Number((duration / (1000 * 60 * 60)).toFixed(0))
+    // floor removes any possible floating point numbers
+    const seconds: number = Math.floor(((duration / 1000) % 60))
+    const minutes: number = Math.floor(((duration / (1000 * 60)) % 60))
+    const hours: number = Math.floor((duration / (1000 * 60 * 60)))
     const hoursString = (hours < 10 && hours >= 0) ? '0' + hours : hours
     const minutesString = (minutes < 10 && minutes >= 0) ? '0' + minutes : minutes
     const secondsString = (seconds < 10 && seconds >= 0) ? '0' + seconds : seconds

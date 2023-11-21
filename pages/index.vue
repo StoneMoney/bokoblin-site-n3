@@ -82,9 +82,9 @@ useSeoMeta({
   title: 'Bokoblin',
 })
 useServerSeoMeta({
-  description: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  description: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
   ogTitle: 'Bokoblin',
-  ogDescription: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  ogDescription: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
   themeColor: '#FF5959'
 })
 </script>

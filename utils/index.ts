@@ -2,9 +2,9 @@ export function getDurationNumberal(start: Date | string, stop: Date | string) {
     const startDate = new Date(start).getTime()
     const stopDate = new Date(stop).getTime()
     const duration = stopDate - startDate
-    let seconds = (duration / 1000) % 60
-    let minutes = (duration / (1000 * 60)) % 60
-    let hours = (duration / (1000 * 60 * 60))
+    let seconds = Math.floor((duration / 1000) % 60)
+    let minutes = Math.floor((duration / (1000 * 60)) % 60)
+    let hours = Math.floor((duration / (1000 * 60 * 60)))
     hours = hours / 24
     minutes = minutes / 1440
     seconds = seconds / 86400

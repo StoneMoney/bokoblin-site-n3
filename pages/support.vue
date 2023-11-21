@@ -3,9 +3,9 @@ useSeoMeta({
   title: 'Support - Bokoblin',
 })
 useServerSeoMeta({
-  description: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  description: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
   ogTitle: 'Support - Bokoblin',
-  ogDescription: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  ogDescription: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
   themeColor: '#FF5959'
 })
 </script>
@@ -34,7 +34,7 @@ useServerSeoMeta({
           <Icon name="mdi:patreon" /> Support on Patreon
         </nuxt-link>
         <nuxt-link
-          href="https://bokoblin-shop.fourthwall.com/"
+          href="https://shop.bokoblin.com/"
           target="_blank"
           rel="noopener"
           class="mr-1 my-2 p-2 bg-red-400 hover:bg-red-500 rounded font-semibold text-white"

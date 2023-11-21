@@ -3,9 +3,9 @@ useSeoMeta({
   title: 'About - Bokoblin',
 })
 useServerSeoMeta({
-  description: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  description: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
   ogTitle: 'About - Bokoblin',
-  ogDescription: `Bokoblin, archived data of the last 11 years of Kinstone-operated charity marathons.`,
+  ogDescription: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
   themeColor: '#FF5959'
 })
 </script>
@@ -15,7 +15,7 @@ useServerSeoMeta({
       <h1 class="text-3xl">
         Bokoblin.com
       </h1>
-      <p>Archived data of the last 11 years of Kinstone-operated charity marathons</p>
+      <p>Archived data of Kinstone-operated charity marathons</p>
       <p>This site is community-run and is <em>not</em> affiliated with Kinstone, LLC. or its properties, including but not limited to Zeldathon, Parallel Worlds, Side Quest, and Piece of Heart</p>
       <h2 class="text-2xl my-3">
         Data Removal Request
