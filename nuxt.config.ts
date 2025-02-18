@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     manifest: {
       name: 'Bokoblin Archives',
       short_name: 'Bokoblin',
-      description: 'Bokoblin, archived data of Kinstone-operated charity marathons',
+      description: 'Bokoblin, archived data of Zeldathon-affiliated charity marathons',
       display: 'standalone',
       background_color: '#ffffff',
       theme_color: '#343a40',

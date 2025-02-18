@@ -1,6 +1,6 @@
 <template>
   <footer class="flex gap-2 my-2">
-    <div>Bokoblin &copy; 2023</div>
+    <div>Bokoblin &copy; 2025</div>
     <nuxt-link to="/about">
       about
     </nuxt-link>

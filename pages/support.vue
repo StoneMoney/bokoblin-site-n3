@@ -3,9 +3,9 @@ useSeoMeta({
   title: 'Support - Bokoblin',
 })
 useServerSeoMeta({
-  description: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
+  description: `Bokoblin, archived data of Zeldathon-affiliated charity marathons.`,
   ogTitle: 'Support - Bokoblin',
-  ogDescription: `Bokoblin, archived data of Kinstone-operated charity marathons.`,
+  ogDescription: `Bokoblin, archived data of Zeldathon-affiliated charity marathons.`,
   themeColor: '#FF5959'
 })
 </script>

@@ -4,7 +4,7 @@
       Bokoblin Extension
     </h1>
     <p class="text-center">
-      A browser extension for use during Kinstone marathons!
+      A browser extension for use during Zeldathon marathons!
     </p>
     <div class="flex justify-center gap-2 m-3">
       <div class="my-3">
@@ -59,7 +59,7 @@
           Attendie Chat Badges
         </div>
         <div>
-          Highlight Kinstone team members in chat with a special triforce badge next to their username.
+          Highlight Zeldathon team members in chat with a special triforce badge next to their username.
         </div>
       </div>
     </div>

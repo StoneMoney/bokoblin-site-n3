@@ -150,11 +150,11 @@ watch(router.currentRoute, () => {
             Calculator
           </div>
         </nuxt-link>
-        <nuxt-link to="/tools/extension">
+        <!-- <nuxt-link to="/tools/extension">
           <div :class="`hover:bg-slate-100 dark:hover:bg-gray-800 py-1 px-2 md:px-3 rounded ${router.currentRoute.value.path == '/tools/extension' ? 'bg-slate-100 dark:bg-gray-800' : ''}`">
             Extension
           </div>
-        </nuxt-link>
+        </nuxt-link> -->
       </div>
     </div>
   </nav>
